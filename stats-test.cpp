@@ -15,4 +15,7 @@ TEST(Statistics, ReportsAverageMinMax) {
 TEST(Statistics, AverageNaNForEmpty) {
     float values[1] = {};
     auto computedStats = compute_statistics(values, 0);
+    EXPECT_TRUE(isnan(computedStats.average));
+    EXPECT_TRUE(isnan(computedStats.min));
+    EXPECT_TRUE(isnan(computedStats.max));
 }
